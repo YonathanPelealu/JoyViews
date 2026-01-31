@@ -82,6 +82,7 @@ export async function POST(request: NextRequest) {
     );
   } catch (error) {
     console.error("Review error:", error);
+    console.error("Error stack:", error instanceof Error ? error.stack : "No stack");
 
     if (error instanceof Error) {
       // Handle specific API errors
@@ -91,6 +92,12 @@ export async function POST(request: NextRequest) {
           { status: 500 }
         );
       }
+
+      // Return more detailed error in development
+      return NextResponse.json(
+        { error: error.message || "Failed to process review" },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json(

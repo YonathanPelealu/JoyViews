@@ -1,8 +1,10 @@
 import { AIProvider, ProviderName, PROVIDER_CONFIGS } from "./base";
 import { openaiProvider } from "./openai";
 import { anthropicProvider } from "./anthropic";
+import { mockProvider } from "./mock";
 
 const providers: Record<ProviderName, AIProvider> = {
+  mock: mockProvider,
   openai: openaiProvider,
   anthropic: anthropicProvider,
 };

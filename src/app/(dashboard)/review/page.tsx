@@ -17,8 +17,8 @@ export default function ReviewPage() {
   const router = useRouter();
   const [code, setCode] = useState("");
   const [language, setLanguage] = useState("auto");
-  const [provider, setProvider] = useState("openai");
-  const [model, setModel] = useState("gpt-4o");
+  const [provider, setProvider] = useState("mock");
+  const [model, setModel] = useState("mock-roaster");
   const [title, setTitle] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<ReviewResultType | null>(null);

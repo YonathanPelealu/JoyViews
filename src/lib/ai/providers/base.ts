@@ -38,12 +38,18 @@ export interface AIModel {
   description?: string;
 }
 
-export type ProviderName = "openai" | "anthropic";
+export type ProviderName = "openai" | "anthropic" | "mock";
 
 export const PROVIDER_CONFIGS: Record<
   ProviderName,
   { name: string; models: AIModel[] }
 > = {
+  mock: {
+    name: "Mock (Free)",
+    models: [
+      { id: "mock-roaster", name: "Mock Roaster", description: "Fake responses for testing - no API key needed" },
+    ],
+  },
   openai: {
     name: "OpenAI",
     models: [
@@ -55,8 +61,7 @@ export const PROVIDER_CONFIGS: Record<
   anthropic: {
     name: "Anthropic",
     models: [
-      { id: "claude-sonnet-4-20250514", name: "Claude Sonnet 4", description: "Latest Sonnet" },
-      { id: "claude-3-5-sonnet-20241022", name: "Claude 3.5 Sonnet", description: "Balanced performance" },
+      { id: "claude-3-5-sonnet-20241022", name: "Claude 3.5 Sonnet", description: "Most capable, best for code review" },
       { id: "claude-3-5-haiku-20241022", name: "Claude 3.5 Haiku", description: "Fast and efficient" },
     ],
   },

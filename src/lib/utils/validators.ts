@@ -5,7 +5,7 @@ export const reviewRequestSchema = z.object({
   language: z.string().optional(),
   context: z.string().max(2000, "Context is too long").optional(),
   focusAreas: z.array(z.string()).max(10).optional(),
-  provider: z.enum(["openai", "anthropic"]).default("openai"),
+  provider: z.enum(["mock", "openai", "anthropic"]).default("mock"),
   model: z.string().min(1, "Model is required"),
   title: z.string().max(200, "Title is too long").optional(),
 });
